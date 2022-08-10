@@ -28,13 +28,23 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-commentary')
+call minpac#add('preservim/nerdtree')
+
+" Colorschemes
+" ------------
+
 
 " ========================
 " Add custom mappings here
 " ========================
 
 let mapleader = "\<Space>"
-nmap 0 ^
+" nmap 0 ^
+
+" NERDTree
+" --------
+nmap <leader>e :NERDTreeToggle<cr>
+
 
 " Edit your vimrc in a new tab and source it
 
@@ -105,10 +115,20 @@ endif
 " Settings
 " ========
 
-set scrolloff=4                 " Keep at least 4 lines below cursor
+" Keep at least 4 lines below cursor
+set scrolloff=4
+
+" Enable syntax highlighting
+syntax on
+
 
 " Tabspaces 2
 " -----------
 set tabstop=2
 set shiftwidth=2
 set expandtab
+filetype plugin indent on
+
+" Folding
+" -------
+" set foldmethod=indent
