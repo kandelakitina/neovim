@@ -31,6 +31,12 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('preservim/nerdtree', {'type': 'opt'})
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('tversteeg/registers.nvim')
+call minpac#add('norcalli/nvim-colorizer.lua')
+
+" Colorizer options
+" -----------------
+set termguicolors
+lua require'colorizer'.setup()
 
 " Colorscheme
 " ------------
@@ -39,6 +45,10 @@ call minpac#add('ayu-theme/ayu-vim')
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
+
+" Change background color when in Insert mode
+autocmd InsertEnter * hi Normal guibg=#190f19
+autocmd InsertLeave * hi Normal guibg=#0F1419
 
 " ========================
 " Add custom mappings here
