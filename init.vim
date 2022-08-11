@@ -39,12 +39,10 @@ call minpac#add('preservim/nerdtree')
 " ========================
 
 let mapleader = "\<Space>"
-" nmap 0 ^
 
 " NERDTree
 " --------
 nmap <leader>e :NERDTreeToggle<cr>
-
 
 " Edit your vimrc in a new tab and source it
 
@@ -60,17 +58,35 @@ nmap k gk
 " Fuzzy Finder Settings and Mappings
 " ==================================
 
-" Mapping fuzzy finder to leader-o
-nnoremap <leader>o :<C-u>FZF<CR> 
+" Search for files
+nnoremap <leader>o :Files<CR> 
 
-" Search in current buffer (for lines)
-nmap <leader>f :BLines<CR>
-
-" Search through history of opened files	
-nmap <leader>h :History<CR>
+" Search for git files
+nnoremap <leader>gf :GFiles:<CR>
 
 " Search through buffers	
 nmap <leader>b :Buffers<CR>
+
+" Search text in current buffer (for lines)
+nmap <leader>f :BLines<CR>
+
+" Search through history of opened files	
+nmap <leader>hf :History<CR>
+
+" Search through history of commands
+nmap <leader>hc :History:<CR>
+
+" Search through search history
+nmap <leader>hs :History/<CR>
+
+" Search through help
+nmap <leader>sh :Helptags<CR>
+
+" Search through tags in current buffer
+nmap <leader>st :BTags<CR>
+
+" Search through marks
+nmap <leader>sm :Marks<CR>
 
 " Fuzzy finder to use ripgrep 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
