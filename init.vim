@@ -1,5 +1,5 @@
 " MinPac Manager Things
-" =====================
+" ---------------------
 
 " MinPac package manager to load first
 packadd minpac 			
@@ -28,17 +28,27 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-commentary')
-call minpac#add('preservim/nerdtree')
+call minpac#add('preservim/nerdtree', {'type': 'opt'})
+call minpac#add('easymotion/vim-easymotion')
+call minpac#add('tversteeg/registers.nvim')
 
-" Colorschemes
+" Colorscheme
 " ------------
 
+call minpac#add('ayu-theme/ayu-vim')
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 
 " ========================
 " Add custom mappings here
 " ========================
 
 let mapleader = "\<Space>"
+
+" Cycle tabs left and right
+nmap <C-h> :tabp<cr>
+nmap <C-l> :tabn<cr>
 
 " NERDTree
 " --------
@@ -54,38 +64,37 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap j gj
 nmap k gk
 
-" ==================================
 " Fuzzy Finder Settings and Mappings
-" ==================================
+" ----------------------------------
 
 " Search for files
 nnoremap <leader>o :Files<CR> 
 
 " Search for git files
-nnoremap <leader>gf :GFiles:<CR>
+nnoremap <leader>f :GFiles:<CR>
 
 " Search through buffers	
 nmap <leader>b :Buffers<CR>
 
 " Search text in current buffer (for lines)
-nmap <leader>f :BLines<CR>
+nmap <leader>l :BLines<CR>
 
-" Search through history of opened files	
-nmap <leader>hf :History<CR>
+" Search history of opened files	
+nmap <leader>h :History<CR>
 
-" Search through history of commands
-nmap <leader>hc :History:<CR>
+" Search commands history
+nmap <leader>ch :History:<CR>
 
-" Search through search history
-nmap <leader>hs :History/<CR>
+" Search log
+nmap <leader>sl :History/<CR>
 
-" Search through help
+" Search help
 nmap <leader>sh :Helptags<CR>
 
-" Search through tags in current buffer
+" Search tags in current buffer
 nmap <leader>st :BTags<CR>
 
-" Search through marks
+" Search marks
 nmap <leader>sm :Marks<CR>
 
 " Fuzzy finder to use ripgrep 
@@ -102,9 +111,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
-" =================================
-" Terminal Mode Mappings & Settings
-" =================================
+" Terminal Mode
+" -------------
 
 " Bind leader-Esc to go Normal mode when in terminal
 tnoremap <leader><Esc> <C-\><C-n>
@@ -114,7 +122,10 @@ if has('nvim')
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
-" Alt-hjkl to switch between panes in Terminal mode
+" Windows and Splits
+" ------------------
+
+" Alt-hjkl to switch between panes 
 nnoremap <M-h> <c-w>h
 nnoremap <M-j> <c-w>j
 nnoremap <M-k> <c-w>k
@@ -137,6 +148,11 @@ set scrolloff=4
 " Enable syntax highlighting
 syntax on
 
+" Enable enhanced tab autocomplete
+set wildmenu                    
+
+" Complete till longest string, then open menu
+set wildmode=list:longest,full  
 
 " Tabspaces 2
 " -----------
