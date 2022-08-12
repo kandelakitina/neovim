@@ -32,6 +32,9 @@ call minpac#add('preservim/nerdtree', {'type': 'opt'})
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('tversteeg/registers.nvim')
 call minpac#add('norcalli/nvim-colorizer.lua')
+call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('lyokha/vim-xkbswitch')
+
 
 " Colorizer options
 " -----------------
