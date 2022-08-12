@@ -33,8 +33,25 @@ call minpac#add('easymotion/vim-easymotion')
 call minpac#add('tversteeg/registers.nvim')
 call minpac#add('norcalli/nvim-colorizer.lua')
 call minpac#add('jiangmiao/auto-pairs')
-call minpac#add('lyokha/vim-xkbswitch')
 
+" Lsp
+" ---
+call minpac#add('williamboman/mason.nvim')
+:lua require("mason").setup()
+
+call minpac#add('neovim/nvim-lspconfig')
+call minpac#add('glepnir/lspsaga.nvim')
+call minpac#add('williamboman/mason-lspconfig.nvim')
+call minpac#add('mfussenegger/nvim-dap')
+call minpac#add('mfussenegger/nvim-lint')
+call minpac#add('mhartington/formatter.nvim')
+
+"setting Switchkey - autoswitch keyboard layout in Vim. 
+" Does not seem to work in Gnome. 
+" --------
+" call minpac#add('lyokha/vim-xkbswitch')
+" let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
 
 " Colorizer options
 " -----------------
@@ -162,10 +179,10 @@ set scrolloff=4
 syntax on
 
 " Enable enhanced tab autocomplete
-set wildmenu                    
+" set wildmenu                    
 
 " Complete till longest string, then open menu
-set wildmode=list:longest,full  
+" set wildmode=list:longest,full  
 
 " Tabspaces 2
 " -----------
