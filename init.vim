@@ -28,13 +28,17 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-commentary')
-call minpac#add('preservim/nerdtree', {'type': 'opt'})
-call minpac#add('easymotion/vim-easymotion')
+call minpac#add('preservim/nerdtree')
+call minpac#add('ggandor/leap.nvim')
 call minpac#add('tversteeg/registers.nvim')
 call minpac#add('norcalli/nvim-colorizer.lua')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('lyokha/vim-xkbswitch')
+call minpac#add('mbbill/undotree')
+" call minpac#add('easymotion/vim-easymotion') " replaced with Leap
 
+" Leap turn on keybinds
+:lua require('leap').set_default_keymaps()
 
 " Colorizer options
 " -----------------
@@ -63,9 +67,10 @@ let mapleader = "\<Space>"
 nmap <C-h> :tabp<cr>
 nmap <C-l> :tabn<cr>
 
-" NERDTree
-" --------
+" NERDTree and Gundo
+" -----------------
 nmap <leader>e :NERDTreeToggle<cr>
+nmap <leader>g :UndotreeToggle<cr>
 
 " Edit your vimrc in a new tab and source it
 
@@ -177,3 +182,11 @@ filetype plugin indent on
 " Folding
 " -------
 " set foldmethod=indent
+
+" Tags
+" ----
+" Look for tags recursiverly in parent folders
+set tags=tags;
+
+" Generate tags when saving files. Add other filetypes:
+autocmd BufWritePost *.py silent! !crags -R &
