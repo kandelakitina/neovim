@@ -35,7 +35,23 @@ call minpac#add('norcalli/nvim-colorizer.lua')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('lyokha/vim-xkbswitch')
 call minpac#add('mbbill/undotree')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('tpope/vim-fugitive')
+
+" ALE Linting Plugin. Delete when install something better
+call minpac#add('dense-analysis/ale')
+
+" Old plugins (keeping them for history)
+" -------------------------------
 " call minpac#add('easymotion/vim-easymotion') " replaced with Leap
+
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
 
 " Leap turn on keybinds
 :lua require('leap').set_default_keymaps()
