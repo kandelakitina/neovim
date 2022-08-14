@@ -17,8 +17,7 @@ command! PackStatus packadd minpac | call minpac#status()
 " Show pathtime
 command! RuntimePath :echo join(split(&runtimepath, ','), "\n") 
 
-" ==============
-" Add packs here
+" Addons list
 " ==============
 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -38,6 +37,7 @@ call minpac#add('mbbill/undotree')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('ayu-theme/ayu-vim')
 
 " ALE Linting Plugin. Delete when install something better
 call minpac#add('dense-analysis/ale')
@@ -45,7 +45,8 @@ call minpac#add('dense-analysis/ale')
 " Old plugins (keeping them for history)
 " -------------------------------
 " call minpac#add('easymotion/vim-easymotion') " replaced with Leap
-
+" Visual Customisation Settings
+" -----------------------------  
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -53,18 +54,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
 
-" Leap turn on keybinds
-:lua require('leap').set_default_keymaps()
-
-" Colorizer options
-" -----------------
+" Colorizer addon options
 set termguicolors
 lua require'colorizer'.setup()
 
 " Colorscheme
-" ------------
-
-call minpac#add('ayu-theme/ayu-vim')
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
@@ -73,34 +67,39 @@ colorscheme ayu
 autocmd InsertEnter * hi Normal guibg=#190f19
 autocmd InsertLeave * hi Normal guibg=#0F1419
 
-" ========================
-" Add custom mappings here
-" ========================
-
-let mapleader = "\<Space>"
+" Show terminal cursor when in Normal mode
+if has('nvim')
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
+" Windows, Buffers, Splits and Tabs mappings
+" ------------------
+" Cycle through and close buffers 
+nmap <C-k> :bnext<cr>
+nmap <C-j> :bprevious<cr>
+nnoremap <C-q> :bd<cr>
 
 " Cycle tabs left and right
 nmap <C-h> :tabp<cr>
 nmap <C-l> :tabn<cr>
 
-" NERDTree and Gundo
-" -----------------
-nmap <leader>e :NERDTreeToggle<cr>
-nmap <leader>g :UndotreeToggle<cr>
+" Alt-hjkl to switch between panes 
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
 
-" Edit your vimrc in a new tab and source it
+if has('nvim')
+  tnoremap <M-h> <c-\><c-n><c-w>h
+  tnoremap <M-j> <c-\><c-n><c-w>j
+  tnoremap <M-k> <c-\><c-n><c-w>k
+  tnoremap <M-l> <c-\><c-n><c-w>l
+endif
 
-nmap <leader>vi :tabedit $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
-
-" Move up and down by visible lines if current line is wrapped
-
-nmap j gj
-nmap k gk
+" Bind leader-Esc to go Normal mode when in terminal
+tnoremap <leader><Esc> <C-\><C-n>
 
 " Fuzzy Finder Settings and Mappings
 " ----------------------------------
-
 " Search for files
 nnoremap <leader>o :Files<CR> 
 
@@ -144,38 +143,26 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Insert mode completion
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
+" Other custom mappings
+" ------------------------
+let mapleader = "\<Space>"
 
-" Terminal Mode
-" -------------
+" Leap addon - turn on keybinds (s, S)
+:lua require('leap').set_default_keymaps()
 
-" Bind leader-Esc to go Normal mode when in terminal
-tnoremap <leader><Esc> <C-\><C-n>
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
 
-" Show terminal cursor when in Normal mode
-if has('nvim')
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-endif
+" NERDTree and Gundo
+nmap <leader>e :NERDTreeToggle<cr>
+nmap <leader>g :UndotreeToggle<cr>
 
-" Windows and Splits
-" ------------------
-
-" Alt-hjkl to switch between panes 
-nnoremap <M-h> <c-w>h
-nnoremap <M-j> <c-w>j
-nnoremap <M-k> <c-w>k
-nnoremap <M-l> <c-w>l
-
-if has('nvim')
-  tnoremap <M-h> <c-\><c-n><c-w>h
-  tnoremap <M-j> <c-\><c-n><c-w>j
-  tnoremap <M-k> <c-\><c-n><c-w>k
-  tnoremap <M-l> <c-\><c-n><c-w>l
-endif
-
-" ========
+" Edit your vimrc in a new tab and source it
+nmap <leader>vi :tabedit $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
 " Settings
-" ========
-
+" --------
 " Keep at least 4 lines below cursor
 set scrolloff=4
 
@@ -195,9 +182,6 @@ set shiftwidth=2
 set expandtab
 filetype plugin indent on
 
-" Folding
-" -------
-" set foldmethod=indent
 
 " Tags
 " ----
@@ -206,3 +190,6 @@ set tags=tags;
 
 " Generate tags when saving files. Add other filetypes:
 autocmd BufWritePost *.py silent! !crags -R &
+
+" Shor cursorline
+set cursorline
