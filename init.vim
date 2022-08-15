@@ -1,6 +1,5 @@
-" MinPac Manager Things
-" ---------------------
-
+" MinPac Manager Things {{{1
+" --------------------------
 " MinPac package manager to load first
 packadd minpac 			
 call minpac#init()
@@ -17,9 +16,10 @@ command! PackStatus packadd minpac | call minpac#status()
 " Show pathtime
 command! RuntimePath :echo join(split(&runtimepath, ','), "\n") 
 
-" Addons list
-" ==============
 
+
+" Addons list {{{1
+" ----------------
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
@@ -45,7 +45,10 @@ call minpac#add('dense-analysis/ale')
 " Old plugins (keeping them for history)
 " -------------------------------
 " call minpac#add('easymotion/vim-easymotion') " replaced with Leap
-" Visual Customisation Settings
+
+
+
+" Visual Customisation Settings {{{1
 " -----------------------------  
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -71,7 +74,10 @@ autocmd InsertLeave * hi Normal guibg=#0F1419
 if has('nvim')
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
-" Windows, Buffers, Splits and Tabs mappings
+
+
+
+" Windows, Buffers, Splits and Tabs mappings {{{1
 " ------------------
 " Cycle through and close buffers 
 nmap <C-k> :bnext<cr>
@@ -98,7 +104,9 @@ endif
 " Bind leader-Esc to go Normal mode when in terminal
 tnoremap <leader><Esc> <C-\><C-n>
 
-" Fuzzy Finder Settings and Mappings
+
+
+" Fuzzy Finder Settings and Mappings {{{1
 " ----------------------------------
 " Search for files
 nnoremap <leader>o :Files<CR> 
@@ -137,15 +145,16 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 " History files will be stored in the specified directory
 " When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 " 'previous-history' instead of 'down' and 'up'.
-
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Insert mode completion
-
 imap <c-x><c-f> <plug>(fzf-complete-path)
-" Other custom mappings
+
+
+
+" Other custom mappings {{{1
 " ------------------------
-let mapleader = "\<Space>"
+let mapleader = " "
 
 " Leap addon - turn on keybinds (s, S)
 :lua require('leap').set_default_keymaps()
@@ -161,7 +170,10 @@ nmap <leader>g :UndotreeToggle<cr>
 " Edit your vimrc in a new tab and source it
 nmap <leader>vi :tabedit $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
-" Settings
+
+
+
+" Random settings {{{1
 " --------
 " Keep at least 4 lines below cursor
 set scrolloff=4
@@ -175,7 +187,8 @@ set wildmenu
 " Complete till longest string, then open menu
 set wildmode=list:longest,full  
 
-" Tabspaces 2
+
+" Tabspaces 2 {{{2
 " -----------
 set tabstop=2
 set shiftwidth=2
@@ -183,13 +196,16 @@ set expandtab
 filetype plugin indent on
 
 
-" Tags
-" ----
+" Tags {{{2
+" ---------
 " Look for tags recursiverly in parent folders
 set tags=tags;
 
 " Generate tags when saving files. Add other filetypes:
 autocmd BufWritePost *.py silent! !crags -R &
 
-" Shor cursorline
-set cursorline
+
+" Folding {{{2
+" ------------
+set foldmethod=marker
+" }}}
