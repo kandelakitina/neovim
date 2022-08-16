@@ -112,25 +112,28 @@ tnoremap <leader><Esc> <C-\><C-n>
 nnoremap <leader>o :Files<CR> 
 
 " Search for git files
-nnoremap <leader>f :GFiles:<CR>
+nnoremap <leader>g :GFiles:<CR>
 
 " Search through buffers	
 nmap <leader>b :Buffers<CR>
 
 " Search text in current buffer (for lines)
-nmap <leader>l :BLines<CR>
+nmap <leader>f :BLines<CR>
 
 " Search history of opened files	
-nmap <leader>h :History<CR>
+nmap <leader>r :History<CR>
+
+" Search through all commands
+nmap <leader>c :Commands<CR>
 
 " Search commands history
-nmap <leader>ch :History:<CR>
+nmap <leader>lc :History:<CR>
 
 " Search log
-nmap <leader>sl :History/<CR>
+nmap <leader>ls :History/<CR>
 
 " Search help
-nmap <leader>sh :Helptags<CR>
+nmap <leader>h :Helptags<CR>
 
 " Search tags in current buffer
 nmap <leader>st :BTags<CR>
