@@ -129,7 +129,15 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 
-" Other mappings {{{1
+" NERDTree Settings and Mappings {{{1
+nmap <leader>e :NERDTreeToggle %<cr>
+
+" NERDTree to follow the current buffer
+" (this will make NERDTree persistent)
+" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+
+
+" Other Settings and Mappings {{{1
 " -------------------
 " Leap addon - turn on keybinds (s, S)
 :lua require('leap').set_default_keymaps()
@@ -141,8 +149,6 @@ cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap j gj
 nmap k gk
 
-" NERDTree and Gundo
-nmap <leader>e :NERDTreeToggle<cr>
 nmap <leader>g :UndotreeToggle<cr>
 
 " Edit your vimrc in a new tab and source it
