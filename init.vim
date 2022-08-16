@@ -77,6 +77,10 @@ endif
 
 
 
+" Leader Key Mapping {{{1
+" ------------------------
+let mapleader = " "
+
 " Windows, Buffers, Splits and Tabs mappings {{{1
 " ------------------
 " Cycle through and close buffers 
@@ -115,31 +119,31 @@ nnoremap <leader>o :Files<CR>
 nnoremap <leader>g :GFiles:<CR>
 
 " Search through buffers	
-nmap <leader>b :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Search text in current buffer (for lines)
-nmap <leader>f :BLines<CR>
+nnoremap <leader>f :BLines<CR>
 
 " Search history of opened files	
-nmap <leader>r :History<CR>
+nnoremap <leader>r :History<CR>
 
 " Search through all commands
-nmap <leader>c :Commands<CR>
+nnoremap <leader>c :Commands<CR>
 
 " Search commands history
-nmap <leader>lc :History:<CR>
+nnoremap <leader>lc :History:<CR>
 
 " Search log
-nmap <leader>ls :History/<CR>
+nnoremap <leader>ls :History/<CR>
 
 " Search help
-nmap <leader>h :Helptags<CR>
+nnoremap <leader>h :Helptags<CR>
 
 " Search tags in current buffer
-nmap <leader>st :BTags<CR>
+nnoremap <leader>st :BTags<CR>
 
 " Search marks
-nmap <leader>sm :Marks<CR>
+nnoremap <leader>sm :Marks<CR>
 
 " Fuzzy finder to use ripgrep 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
@@ -154,11 +158,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 
-
-" Other custom mappings {{{1
-" ------------------------
-let mapleader = " "
-
+" Other mappings {{{1
+" -------------------
 " Leap addon - turn on keybinds (s, S)
 :lua require('leap').set_default_keymaps()
 
