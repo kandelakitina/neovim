@@ -134,6 +134,9 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 " Leap addon - turn on keybinds (s, S)
 :lua require('leap').set_default_keymaps()
 
+" Expands %% to the active file directory path in Command line
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
 nmap k gk
