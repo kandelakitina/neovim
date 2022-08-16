@@ -188,6 +188,11 @@ set wildmenu
 set wildmode=list:longest,full  
 
 
+" Search Settings {{{2
+" ---------------
+set ignorecase
+set smartcase
+
 " Tabspaces 2 {{{2
 " -----------
 set tabstop=2
