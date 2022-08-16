@@ -48,35 +48,6 @@ call minpac#add('dense-analysis/ale')
 
 
 
-" Visual Customisation Settings {{{1
-" -----------------------------  
-" Airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_powerline_fonts = 1
-
-" Colorizer addon options
-set termguicolors
-lua require'colorizer'.setup()
-
-" Colorscheme
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-
-" Change background color when in Insert mode
-autocmd InsertEnter * hi Normal guibg=#190f19
-autocmd InsertLeave * hi Normal guibg=#0F1419
-
-" Show terminal cursor when in Normal mode
-if has('nvim')
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-endif
-
-
-
 " Leader Key Mapping {{{1
 " ------------------------
 let mapleader = " "
@@ -174,6 +145,35 @@ nmap <leader>g :UndotreeToggle<cr>
 " Edit your vimrc in a new tab and source it
 nmap <leader>vi :tabedit $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
+
+
+
+" Visual Customisation Settings {{{1
+" -----------------------------  
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
+
+" Colorizer addon options
+set termguicolors
+lua require'colorizer'.setup()
+
+" Colorscheme
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+
+" Change background color when in Insert mode
+autocmd InsertEnter * hi Normal guibg=#190f19
+autocmd InsertLeave * hi Normal guibg=#0F1419
+
+" Show terminal cursor when in Normal mode
+if has('nvim')
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
 
 
 
