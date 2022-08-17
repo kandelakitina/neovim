@@ -44,10 +44,10 @@ call minpac#add('chentoast/marks.nvim')
 " ALE Linting Plugin. Delete when install something better
 call minpac#add('dense-analysis/ale')
 
-" Addons Required Settings {{{1
+" Addons Required Settings {{{1:
 " ------------------------
 " Marks
-:lua require'marks'.setup { default_mappings = true, signs = true, mappings = {} }
+:lua require'marks'.setup { default_mappings = true, signs = true, mappings = {}, builtin_marks = { "'", "<", ">", ".", "`", "[", "]" } }
 
 " Leap addon - turn on keybinds (s, S)
 :lua require('leap').set_default_keymaps()
