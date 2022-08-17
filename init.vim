@@ -38,13 +38,19 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('ayu-theme/ayu-vim')
+call minpac#add('chentoast/marks.nvim')
+
 
 " ALE Linting Plugin. Delete when install something better
 call minpac#add('dense-analysis/ale')
 
-" Old plugins (keeping them for history)
-" -------------------------------
-" call minpac#add('easymotion/vim-easymotion') " replaced with Leap
+" Addons Required Settings {{{1
+" ------------------------
+" Marks
+:lua require'marks'.setup { default_mappings = true, signs = true, mappings = {} }
+
+" Leap addon - turn on keybinds (s, S)
+:lua require('leap').set_default_keymaps()
 
 
 
@@ -139,9 +145,6 @@ nmap <leader>e :NERDTreeToggle %<cr>
 
 " Other Settings and Mappings {{{1
 " -------------------
-" Leap addon - turn on keybinds (s, S)
-:lua require('leap').set_default_keymaps()
-
 " Expands %% to the active file directory path in Command line
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
