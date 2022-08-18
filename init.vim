@@ -39,7 +39,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('ayu-theme/ayu-vim')
 call minpac#add('chentoast/marks.nvim')
-
+call minpac#add('ervandew/supertab')
 
 " ALE Linting Plugin. Delete when install something better
 call minpac#add('dense-analysis/ale')
