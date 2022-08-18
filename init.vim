@@ -90,10 +90,10 @@ tnoremap <leader><Esc> <C-\><C-n>
 " Fuzzy Finder Settings and Mappings {{{1
 " ----------------------------------
 " Search for files
-nnoremap <leader>o :Files<CR> 
+nnoremap <leader>o :Files ~<CR> 
 
 " Search for git files
-nnoremap <leader>g :GFiles:<CR>
+nnoremap <leader>d :GFiles:<CR>
 
 " Search through buffers	
 nnoremap <leader>b :Buffers<CR>
