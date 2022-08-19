@@ -158,7 +158,8 @@ nmap <leader>g :UndotreeToggle<cr>
 nmap <leader>vi :tabedit $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
-
+" Bind :noh, i.e. mute search highlights
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Visual Customisation Settings {{{1
 " -----------------------------  
