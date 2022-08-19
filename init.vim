@@ -29,7 +29,7 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('preservim/nerdtree')
 call minpac#add('ggandor/leap.nvim')
-call minpac#add('tversteeg/registers.nvim')
+call minpac#add('junegunn/vim-peekaboo')
 call minpac#add('norcalli/nvim-colorizer.lua')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('lyokha/vim-xkbswitch')
@@ -159,7 +159,10 @@ nmap <leader>vi :tabedit $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
 " Bind :noh, i.e. mute search highlights
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <C-m> :noh<CR>
+
+" Backspace setting
+set backspace=indent,start 
 
 " Visual Customisation Settings {{{1
 " -----------------------------  
@@ -172,7 +175,7 @@ let g:airline_powerline_fonts = 1
 
 " Colorizer addon options
 set termguicolors
-lua require'colorizer'.setup()
+:lua require'colorizer'.setup()
 
 " Colorscheme
 set termguicolors
@@ -203,7 +206,6 @@ set wildmenu
 
 " Complete till longest string, then open menu
 set wildmode=list:longest,full  
-
 
 " Search Settings {{{2
 " ---------------
