@@ -162,7 +162,11 @@ nmap <leader>so :source $MYVIMRC<cr>
 nnoremap <C-m> :noh<CR>
 
 " Backspace setting
-set backspace=indent,start 
+set backspace=indent,start
+
+" Make & repeat substitution but with same flags
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 " Visual Customisation Settings {{{1
 " -----------------------------  
