@@ -169,6 +169,12 @@ set backspace=indent,start
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
+" Generate tags with F5 and each time the file is saved
+:autocmd BufWritePost * call system("ctags -R")
+:nnoremap <f5> :!ctags -R<CR>
+
+
+
 " Visual Customisation Settings {{{1
 " -----------------------------  
 " Airline settings
